@@ -1,2 +1,2 @@
 # practice
-# Java practice codes
+# This folder is to save my Java practice codes
