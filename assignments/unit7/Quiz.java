@@ -14,15 +14,8 @@ public class Quiz {
 			};
 	
 		// create MultipleChoiceQuestion object and call check method for each question
-		for(int i = 0; i < multipleChoiceQuestionsList.length; i++ ) {
-			Question question = new MultipleChoiceQuestion(
-					multipleChoiceQuestionsList[i][0], 
-					multipleChoiceQuestionsList[i][1], 
-					multipleChoiceQuestionsList[i][2], 
-					multipleChoiceQuestionsList[i][3], 
-					multipleChoiceQuestionsList[i][4], 
-					multipleChoiceQuestionsList[i][5], 
-					multipleChoiceQuestionsList[i][6]);
+		for(String[]a: multipleChoiceQuestionsList) {
+			Question question = new MultipleChoiceQuestion(a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
 			question.check();
 		}		
 		
@@ -36,8 +29,8 @@ public class Quiz {
 		};
 
 		// create trueFalseQuestion object and call check method for each question
-		for(int i = 0; i < trueFalseQuestionsList.length; i++ ) {
-			Question trueFalseQuestion = new TrueFalseQuestion(trueFalseQuestionsList[i][0], trueFalseQuestionsList[i][1]);
+		for(String[]a: trueFalseQuestionsList) {
+			Question trueFalseQuestion = new TrueFalseQuestion(a[0], a[1]);
 			trueFalseQuestion.check();
 		}
 		
