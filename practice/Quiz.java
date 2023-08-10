@@ -4,21 +4,44 @@ public class Quiz {
 	// main method
 	public static void main(String[] args) {
 		
-		//initialize an array of questions
-		String[][] params = {
-				{"What is my favorite flavor?","Vanilla", "Chocolate", "Strawberry", "Banana", "Mango", "C"},
-				{"Where is the capital of Canada?","Vancouver", "Ottawa", "Toronto", "Montreal", "Halifax", "B"},
-				{"Formal parameters are also called ____ parameters.", "fake", "actual", "global", "local", "dummy", "E"},
-				{"A Java method gets executed when it is...", "called", "compiled", "declared", "defined", "imported", "A"},
-				{"What is the keyword to make a subclass?","duplicates", "copies", "inherites", "extends", "follows", "D"},
+		//initialize an array of multiple-choice questions
+		String[][] qAndA = {{"What is my favorite flavor?", "C"},
+				{"Where is the capital of Canada?", "B"},
+				{"Formal parameters are also called ____ parameters.", "E"},
+				{"A Java method gets executed when it is...", "A"},
+				{"What is the keyword to make a subclass?", "D"},};
+		String[][] multipleChoiceList = {
+				{"Vanilla", "Chocolate", "Strawberry", "Banana", "Mango"},
+				{"Vancouver", "Ottawa", "Toronto", "Montreal", "Halifax"},
+				{"fake", "actual", "global", "local", "dummy"},
+				{"called", "compiled", "declared", "defined", "imported"},
+				{"duplicates", "copies", "inherites", "extends", "follows"},
 			};
 	
-		
-		for(int i = 0; i < params.length; i++ ) {
-			MultipleChoiceQuestion question = new MultipleChoiceQuestion(params[i][0], params[i][1], params[i][2], params[i][3], params[i][4], params[i][5], params[i][6]);
+		// create MultipleChoiceQuestion object and call check method for each question
+		for(int i = 0; i < qAndA.length; i++) {
+			Question question = new MultipleChoiceQuestion(qAndA[i][0], qAndA[i][1], multipleChoiceList[i]);
 			question.check();
+		}		
+		
+		//initialize an array of true or false questions
+		String[][] trueFalseQuestionsList = {
+				{"The hummingbird egg is the world's smallest bird egg.", "TRUE"},
+				{"Sharks are mammals.", "FALSE"},
+				{"Galapagos tortoises sleep up to 16 hours a day.",  "TRUE"},
+				{"Vatican City is the smallest country in the world.", "TRUE"},
+				{"Most of the human brain is made of muscle.", "FALSE"}
+		};
+
+		// create trueFalseQuestion object and call check method for each question
+		for(String[]a: trueFalseQuestionsList) {
+			Question trueFalseQuestion = new TrueFalseQuestion(a[0], a[1]);
+			trueFalseQuestion.check();
 		}
-		MultipleChoiceQuestion.showResults();				
+		
+		
+		// Show final results
+		Question.showResults();
 		
 	} // end main();
 
